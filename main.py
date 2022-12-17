@@ -40,8 +40,7 @@ class ResultsPage(MethodView):
                                name1 = flatmate1.name,
                                name2 = flatmate2.name,
                                amount1 = flatmate1.pays(the_bill, flatmate2),
-                               amount2 = flatmate2.pays(the_bill, flatmate1)
-                               )
+                               amount2 = flatmate2.pays(the_bill, flatmate1))
 
 class BillForm(Form):
     amount = StringField(label= 'Bill Amount: ')
