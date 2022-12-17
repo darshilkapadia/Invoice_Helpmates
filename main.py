@@ -5,6 +5,7 @@ from Flatmates_Bill import flat
 
 app = Flask(__name__)
 
+
 class Homepage(MethodView):
 
     def get(self):
@@ -15,8 +16,7 @@ class BillFormPage(MethodView):
 
     def get(self):
         bill_form = BillForm()
-        return render_template('bill_form_page.html',
-                               billform = bill_form)
+        return render_template('bill_form_page.html', billform = bill_form)
 
 
 class ResultsPage(MethodView):
@@ -36,7 +36,7 @@ class ResultsPage(MethodView):
         flatmate1 = flat.Flatmate(name1,days_in_house1)
         flatmate2 = flat.Flatmate(name2,days_in_house2)
 
-        return render_template("results.html",
+        return render_template('results.html',
                                name1 = flatmate1.name,
                                name2 = flatmate2.name,
                                amount1 = flatmate1.pays(the_bill, flatmate2),
