@@ -61,6 +61,7 @@ class TipFormPage(MethodView):
         tip_form = TipForm()
         return render_template('tip_form_page.html', tipform = tip_form)
 
+
 class TipResultsPage(MethodView):
 
     def post(self):
@@ -68,15 +69,15 @@ class TipResultsPage(MethodView):
         amount = float(tipform.amount.data)
         r_name = tipform.r_name.data
 
-        tip_percent = int(tipform.tip_percent.data)
-        person_count = int(tipform.person_count.data)
+        tip_percent = float(tipform.tip_percent.data)
+        person_count = float(tipform.person_count.data)
 
         the_bill = tip.Bill(amount, r_name)
-        count1 = tip.Count(tip=tip_percent,people=person_count)
+        count1 = tip.Count(tip_percent,person_count)
 
         return render_template('tipresults.html',
-                               r_name = the_bill.r_name,
-                               amount1 = count1.pays(the_bill,count1))
+                               name1 = the_bill.r_name,
+                               amount1 = count1.pays(the_bill, count1))
 
 class TipForm(Form):
 
@@ -87,6 +88,7 @@ class TipForm(Form):
     person_count = StringField(label='Number of People: ')
 
     button1 = SubmitField("Calculate")
+
 
 app.add_url_rule('/', view_func=Homepage.as_view('home_page'))
 app.add_url_rule('/billform', view_func=BillFormPage.as_view('bill_form_page'))
