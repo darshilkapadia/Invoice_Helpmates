@@ -2,6 +2,7 @@ from flask.views import MethodView
 from wtforms import Form, StringField, SubmitField
 from flask import Flask, render_template, request
 from Flatmates_Bill import flat
+from Tips_Bill import tip
 
 app = Flask(__name__)
 
@@ -54,9 +55,44 @@ class BillForm(Form):
     button = SubmitField("Calculate")
 
 
+class TipFormPage(MethodView):
+
+    def get(self):
+        tip_form = TipForm()
+        return render_template('tip_form_page.html', tipform = tip_form)
+
+class TipResultsPage(MethodView):
+
+    def post(self):
+        tipform = TipForm(request.form)
+        amount = float(tipform.amount.data)
+        r_name = tipform.r_name.data
+
+        tip_percent = int(tipform.tip_percent.data)
+        person_count = int(tipform.person_count.data)
+
+        the_bill = tip.Bill(amount, r_name)
+        count1 = tip.Count(tip=tip_percent,people=person_count)
+
+        return render_template('tipresults.html',
+                               r_name = the_bill.r_name,
+                               amount1 = count1.pays(the_bill,count1))
+
+class TipForm(Form):
+
+    amount = StringField(label='Bill Amount: ')
+    r_name = StringField(label='Restaurant Name: ')
+
+    tip_percent = StringField(label='Tip: ')
+    person_count = StringField(label='Number of People: ')
+
+    button1 = SubmitField("Calculate")
+
 app.add_url_rule('/', view_func=Homepage.as_view('home_page'))
 app.add_url_rule('/billform', view_func=BillFormPage.as_view('bill_form_page'))
 app.add_url_rule('/results', view_func=ResultsPage.as_view('results_page'))
+app.add_url_rule('/tipform', view_func=TipFormPage.as_view('tip_form_page'))
+app.add_url_rule('/tipresults', view_func=TipResultsPage.as_view('tip_results_page'))
 
 
 app.run(debug=True)

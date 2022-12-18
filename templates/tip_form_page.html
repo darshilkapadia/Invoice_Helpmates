@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="header">
+  <h1>Utility Helpmates</h1>
+  <p>Utility Helper -- to complete </p>
+    <p>Fill in the form and click the submit button to get the results</p>
+</div>
+
+<form action="/results" method="post">
+    {{tipform.amount.label}} {{tipform.amount}}
+    <br>
+    {{tipform.r_name.label}} {{tipform.r_name}}
+    <p>Enter Tip and Number of Person</p>
+    {{tipform.tip__percent.label}} {{tipform.tip_percent}}
+    <br>
+    {{tipform.person_count.label}} {{tipform.person_count}}
+    <br>
+    {{tipform.button}}
+</form>
+
+<div class="footer">
+  <h2>Tip Footer</h2>
+</div>
+
+</body>
+</html>
