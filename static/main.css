@@ -1,14 +1,50 @@
-h2 {
+.header{
     color: darkgray;
-    text-align: center;
+
+}
+
+.header h1 {
     font-size: 50px;
+    text-align: center;
 }
 
-input [type=text] {
-    color: ;
+input[type=text] {
+    width: 30px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    /*background-image: url('searchicon.png');*/
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
 
 }
 
-input [type=submit] {
-    color: ;
+input[type=text]:focus {
+  width: 18%;
+}
+
+input[type=submit] {
+    color: burlywood ;
+    width: 21%;
+    background-color: grey;
+    padding: 12px 12px;
+    border: None;
+    border-radius: 6px;
+}
+
+body {
+    background-color: beige;
+    padding: 15px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
 }
