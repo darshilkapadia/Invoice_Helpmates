@@ -34,14 +34,15 @@ class ResultsPage(MethodView):
         days_in_house2 = float(billform.days_in_house2.data)
 
         the_bill = flat.Bill(amount, period)
-        flatmate1 = flat.Flatmate(name1,days_in_house1)
-        flatmate2 = flat.Flatmate(name2,days_in_house2)
+        flatmate1 = flat.Flatmate(name1, days_in_house1)
+        flatmate2 = flat.Flatmate(name2, days_in_house2)
 
         return render_template('results.html',
-                               name1 = flatmate1.name,
-                               name2 = flatmate2.name,
-                               amount1 = flatmate1.pays(the_bill, flatmate2),
-                               amount2 = flatmate2.pays(the_bill, flatmate1))
+                               name1=flatmate1.name,
+                               name2=flatmate2.name,
+                               amount1=flatmate1.pays(the_bill, flatmate2),
+                               amount2=flatmate2.pays(the_bill, flatmate1))
+
 
 class BillForm(Form):
     amount = StringField(label= 'Bill Amount: ')
@@ -59,7 +60,7 @@ class TipFormPage(MethodView):
 
     def get(self):
         tip_form = TipForm()
-        return render_template('tip_form_page.html', tipform = tip_form)
+        return render_template('tip_form_page.html', tipform=tip_form)
 
 
 class TipResultsPage(MethodView):
@@ -76,8 +77,9 @@ class TipResultsPage(MethodView):
         count1 = tip.Count(tip_percent,person_count)
 
         return render_template('tipresults.html',
-                               name1 = the_bill.r_name,
-                               amount1 = count1.pays(the_bill, count1))
+                               name1=the_bill.r_name,
+                               amount1=count1.pays(the_bill, count1))
+
 
 class TipForm(Form):
 
@@ -98,3 +100,5 @@ app.add_url_rule('/tipresults', view_func=TipResultsPage.as_view('tip_results_pa
 
 
 app.run(debug=True)
+
+

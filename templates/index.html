@@ -2,18 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-<!--    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>-->
+    <title>HomePage</title>
+    <link rel="stylesheet" href="static/index.css">
 </head>
 <body>
 
-<h2> Invoice Helpmates </h2>
+<div class="header">
+  <h1>Invoice Helpmates</h1>
+</div>
+
+<ul>
+  <li><a href="http://127.0.0.1:5000">Home</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="https://www.linkedin.com/in/kapadiadarshil/">About</a></li>
+</ul>
+<br>
 <p>
     This web app is useful to split a bill between two flatmates
 </p>
-<a href = {{url_for('bill_form_page')}}> Go to bill page</a>
+<form action = '/billform' >
+    <button type="submit">Utility Helper</button>
+</form>
 <br>
-<a href = {{url_for('tip_form_page')}}> Go to Tip page</a>
+<p>
+    This web app is useful to calculate tip and amount in restaurant
+</p>
+<form action = '/tipform' >
+    <button type="submit">Restaurant Helper</button>
+</form>
+
+
+<div class="footer">
+  <h4>Darshil Kapadia</h4>
+    <a href=""></a>
+</div>
+
 
 </body>
 </html>

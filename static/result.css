@@ -33,6 +33,10 @@ active {
     background-color: #04AA6D;
 }
 
+body {
+    background-color: beige;
+}
+
 p {
     font-size: 30px;
     padding: 10px 10px;
@@ -42,39 +46,6 @@ p {
     letter-spacing: 3px;
 
 }
-
-input[type=text] {
-  width: 230px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: white;
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  padding: 19px 30px 19px 40px;
-  transition: width 0.4s ease-in-out;
-}
-
-input[type=text]:focus {
-  width: 30%;
-}
-
-input[type=submit] {
-    color: snow ;
-    width: 31%;
-    font-size: 31px;
-    background-color: grey;
-    padding: 12px 12px;
-    border: None;
-    border-radius: 6px;
-}
-
-body {
-    background-color: beige;
-    padding: 15px;
-}
-
 /* Footer */
 .footer {
   padding: 20px;
